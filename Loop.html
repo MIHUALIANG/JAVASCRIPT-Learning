@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        for (var i = 0; i < 20; i++) {
+            console.log(i);
+        }
+        //for循环中的三个表达式都可以省略 但是';'不可省略 省略的前提是提前定义
+        sum = 0;
+        for (var i = 0; i <= 10; i++) {
+            sum = sum + i;
+        }
+        alert(sum);
+
+        for (var i = 0; i < 10; i++) {
+            if (i % 2 == 0) { console.log(i) }
+        }
+
+        for (var i = 1; i < 10; i++) {
+            for (var j = 1; j < i + 1; j++) {
+                document.write(j + '*' + i + '=' + i * j + '&nbsp;&nbsp;&nbsp;&nbsp;')
+                //'&nbsq用来添加多个空格'
+            }
+            document.write('<br>')
+            // 实现换行
+        }
+
+        var k = 0;
+        while (k < 5) {
+            console.log(k);
+            k++;
+        }
+    // break 是中止循环  continue是中止该次循环继续下一次循环
+
+    </script>
+</body>
+
+</html>
