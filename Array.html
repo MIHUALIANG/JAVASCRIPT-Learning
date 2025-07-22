@@ -1,110 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
+      var arr = ['i', 'ai', 'china'];
+      console.log(arr);
 
-        var arr = ['i', 'ai', 'china']
-        console.log(arr)
+      var names = [];
+      names[0] = 'zz';
+      names[1] = 'hh';
+      names[2] = 52;
+      names[3] = true;
+      names[4] = [1, 2, 3];
+      console.log(names);
+      console.log(names[1]); //索引越界时返回undefined
+      console.log(names.length); //print 5 有括号的叫方法 没有括号的叫属性
 
-        var names = []
-        names[0] = 'zz'
-        names[1] = 'hh'
-        names[2] = 52
-        names[3] = true
-        names[4] = [1, 2, 3]
-        console.log(names)
-        console.log(names[1])//索引越界时返回undefined
-        console.log(names.length)//print 5 有括号的叫方法 没有括号的叫属性
+      var username = ['zz', 'hh', 'ss'];
+      for (var i = 0; i < username.length; i++) {
+        console.log(username[i]);
+      }
+      //数组遍历
+      // var i = 0;
+      // while (i < username.length) {
+      //     console.log(username[i])
+      //     i++;
+      // }
 
+      // for (var i in username) {
+      //     console.log(username[i])
+      // }
 
-        var username = ["zz", "hh", "ss"]
-        for (var i = 0; i < username.length; i++) {
-            console.log(username[i])
-        }
-        //数组遍历
-        // var i = 0;
-        // while (i < username.length) {
-        //     console.log(username[i])
-        //     i++;
-        // }
+      var num = [1, 2, 3, 4, 5, 6];
+      console.log(typeof num); //typeof无法判定是否为数组 为了弥补typeof的不足 我们使用Array.isArray()方法
 
-        // for (var i in username) {
-        //     console.log(username[i])
-        // }
+      console.log(Array.isArray(num)); //返回true表示为数组 返回false意味着不是数组
 
-        var num = [1, 2, 3, 4, 5, 6]
-        console.log(typeof num)//typeof无法判定是否为数组 为了弥补typeof的不足 我们使用Array.isArray()方法
+      var arr = ['hello'];
+      arr.push('push的使用', 'push多个数据'); //向数组的尾部添加数据 会改变原数组 该方法返回值为数组的长度 例如此时长度为2
 
-        console.log(Array.isArray(num));//返回true表示为数组 返回false意味着不是数组
+      arr.pop(); //用于删除数组的最后一个元素 返回删除的元素 会改变原数组
 
+      //与上列两种方法相反的 下列两个方法从头部操作
+      var ar = [1, 2, 3, 4, 5];
+      ar.shift(); //删除第一个元素 会改变原数组
 
-        var arr = ['hello']
-        arr.push('push的使用', "push多个数据")//向数组的尾部添加数据 会改变原数组 该方法返回值为数组的长度 例如此时长度为2
+      while (ar.length > 0) {
+        item = ar.shift();
+        // console.log(item);
+      }
+      //上述方法可以删除所有数组元素
+      ar.unshift(6, 7, 8); //从头部开始添加数组元素
 
-        arr.pop()//用于删除数组的最后一个元素 返回删除的元素 会改变原数组
+      //join方法以指定参数作为分隔符，将所有数组成员连接作为一个字符串返回，默认为逗号 !!注意!! 默认是join()而非join("") 该方法与split()方法对应
+      var jo = [1, 2, 3, 4, undefined, null]; //undefine、null会被转换为空字符串
+      console.log(jo.join('|'));
 
-        //与上列两种方法相反的 下列两个方法从头部操作
-        var ar = [1, 2, 3, 4, 5]
-        ar.shift();//删除第一个元素 会改变原数组
+      //concat方法用于多个数组的合并 原数组保持不变
+      var c1 = ['hello', 'ni'];
+      var c2 = ['world', 'wo'];
+      var c3 = ['!'];
+      console.log(c1.concat(c2, c3)); //不可以用加号 用加号会变成字符串
 
-        while (ar.length > 0) {
-            item = ar.shift();
-            // console.log(item);
-        }
-        //上述方法可以删除所有数组元素
-        ar.unshift(6, 7, 8)//从头部开始添加数组元素
+      var c4 = [1, 2, 3, 4];
+      console.log(c4.concat(4, [5, 6])); //合并之后为[1,2,3,4,4,5,6]
+      //常用于上拉加载 合并数据
 
-        //join方法以指定参数作为分隔符，将所有数组成员连接作为一个字符串返回，默认为逗号 !!注意!! 默认是join()而非join("") 该方法与split()方法对应
-        var jo = [1, 2, 3, 4, undefined, null]//undefine、null会被转换为空字符串
-        console.log(jo.join('|'))
+      //reverse方法用于翻转数组
+      // var num = [1, 2, 3, 4, 5, 6]
+      console.log(num.reverse());
 
-        //concat方法用于多个数组的合并 原数组保持不变
-        var c1 = ["hello", 'ni']
-        var c2 = ["world", 'wo']
-        var c3 = ['!']
-        console.log(c1.concat(c2, c3))//不可以用加号 用加号会变成字符串
+      var a = 'hello';
+      // var ra=a.split("")
+      // ra.reverse()
+      // a=ra.join("")
+      //注意!!  join有默认值但是split没有默认值
+      var ra = a.split('').reverse();
+      a = ra.join('');
+      console.log(a);
 
-        var c4 = [1, 2, 3, 4]
-        console.log(c4.concat(4, [5, 6]))//合并之后为[1,2,3,4,4,5,6]
-        //常用于上拉加载 合并数据
+      //indexof方法返回给定元素在数组中出现的第一次位置 没有则输出-1
+      // var num = [6,5,4,3,2,1]
+      console.log(num.indexOf(5));
+      console.log(num.indexOf(5, 3));
 
-        //reverse方法用于翻转数组
-        // var num = [1, 2, 3, 4, 5, 6]
-        console.log(num.reverse())
-
-        var a = "hello"
-        // var ra=a.split("")
-        // ra.reverse()
-        // a=ra.join("")
-        //注意!!  join有默认值但是split没有默认值
-        var ra = ((a.split("")).reverse())
-        a = ra.join("")
-        console.log(a)
-
-        //indexof方法返回给定元素在数组中出现的第一次位置 没有则输出-1
-        // var num = [6,5,4,3,2,1]
-        console.log(num.indexOf(5))
-        console.log(num.indexOf(5, 3))
-
-        if (num.indexOf(5) > -1) {
-            console.log('存在')
-        } else {
-            console.log('不存在')
-        }
-
-
-
-
-
-
+      if (num.indexOf(5) > -1) {
+        console.log('存在');
+      } else {
+        console.log('不存在');
+      }
     </script>
-</body>
-
+  </body>
 </html>

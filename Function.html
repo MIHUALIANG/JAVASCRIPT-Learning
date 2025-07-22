@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 10;
+      var y = 20;
+      var z = 30;
+
+      function add(a, b) {
+        console.log(a + b);
+      }
+
+      add(x, y); //函数也是有提升的 因此先调用后创建也不会有问题
+      add(y, z);
+      add(100, 200);
+
+      function minus(a, b) {
+        return a - b;
+      }
+
+      console.log(minus(200, 100));
+    </script>
+  </body>
+</html>
