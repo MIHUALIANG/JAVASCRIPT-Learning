@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var stu = {
+        names: 'zz',
+        age: 18,
+        jobs: ['code', 'play'],
+        flag: true,
+        getname: function () {
+          console.log('wo h');
+        },
+
+        container: {
+          frontEnd: 'web'
+        }
+      };
+
+      //对象的读取方式
+      console.log(stu.names);
+      stu.getname();
+
+      console.log(stu.container.frontEnd); //多层嵌套调用
+    </script>
+  </body>
+</html>

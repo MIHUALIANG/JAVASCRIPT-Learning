@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num = -100;
+      console.log(num);
+      console.log(Math.abs(num));
+      console.log(Math.max(1, 2, 3, 4, 5));
+      console.log(Math.min(1, 2, 3, 4, 5));
+      console.log(Math.floor(10.3));
+      console.log(Math.floor(10.9)); //向下取整
+      console.log(Math.ceil(10.9)); //向上取整
+      console.log(Math.random()); //给出一个随机数 >=0  <1
+
+      function getRandom(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      console.log(getRandom(10, 20));
+    </script>
+  </body>
+</html>
