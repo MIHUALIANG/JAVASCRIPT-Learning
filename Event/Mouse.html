@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 400px;
+        height: 200px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: aquamarine;
+        border: 5px solid rgb(85, 172, 206);
+      }
+      .container {
+        width: 200px;
+        height: 100px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: rgb(238, 30, 141);
+        border: 5px solid rgb(205, 152, 188);
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">单击</button>
+    <button id="btn2">双击</button>
+    <button id="btn3">鼠标按下</button>
+    <button id="btn4">鼠标抬起</button>
+    <div class="box" id="btn5"></div>
+    <div class="box" id="btn6"></div>
+    <div class="box" id="btn7"></div>
+    <div class="box" id="btn8">
+      <div class="container" id="btn10"></div>
+    </div>
+    <div class="box" id="btn9">
+      <div class="container" id="btn11"></div>
+    </div>
+
+    <script>
+      var btn1 = document.getElementById('btn1');
+      var btn2 = document.getElementById('btn2');
+      var btn3 = document.getElementById('btn3');
+      var btn4 = document.getElementById('btn4');
+      var btn5 = document.getElementById('btn5');
+      var btn6 = document.getElementById('btn6');
+      var btn7 = document.getElementById('btn7');
+      var btn8 = document.getElementById('btn8');
+      var btn9 = document.getElementById('btn9');
+      btn1.onclick = function () {
+        console.log('单击事件');
+        alert('单击事件');
+      };
+      btn2.ondblclick = function () {
+        console.log('双击事件');
+        alert('双击事件');
+      };
+      btn3.onmousedown = function () {
+        console.log('鼠标按下事件');
+        alert('鼠标按下事件');
+      };
+      btn4.onmouseup = function () {
+        console.log('鼠标抬起事件');
+        alert('鼠标抬起事件');
+      };
+      btn5.onmousemove = function () {
+        console.log('鼠标移动事件');
+        alert('鼠标移动事件'); //会一直触发
+      };
+      btn6.onmouseenter = function () {
+        console.log('鼠标进入事件');
+        // alert('鼠标进入事件');
+      };
+      btn7.onmouseleave = function () {
+        console.log('鼠标离开事件');
+        alert('鼠标离开事件');
+      };
+
+      //下列两种方法在监听父节点时 与 onmouseenter 以及 onmouseleave 存在区别 上述两种方法在进入或者离开子节点时无响应
+      btn8.onmouseover = function () {
+        console.log('鼠标进入事件'); //进入一个节点后触发 进入该节点的子节点会再次触发  离开子节点相当于再次进入该节点 又会再次触发
+        // alert('鼠标进入事件');
+      };
+      btn9.onmouseout = function () {
+        console.log('鼠标离开事件'); //离开一个节点后触发 进入到该节点子节点视为离开该节点 此时触发一次 离开子节点进入父节点是也会触发 离开父节点是毫无疑问会触发
+        // alert('鼠标离开事件');
+      };
+    </script>
+  </body>
+</html>

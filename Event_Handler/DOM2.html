@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Button</button>
+    <script>
+      //DOM2优点是事件不会被覆盖
+
+      var btn = document.getElementById('btn');
+      btn.addEventListener('click', function () {
+        console.log('点击一次');
+        alert('STOP');
+      });
+
+      btn.addEventListener('click', function () {
+        console.log('又点击一次');
+        alert('STOP!');
+      });
+
+      //上述两种事件都会被触发 依次触发
+    </script>
+  </body>
+</html>

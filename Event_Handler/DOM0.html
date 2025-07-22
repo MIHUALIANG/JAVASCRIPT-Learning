@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Button</button>
+    <script>
+      //该方式 HTML 与 JS 分离 该方法完全不依靠 HTML  缺点是无法同时添加多个触发事件 后面的事件会覆盖前面的
+      var btn = document.getElementById('btn');
+      btn.onclick = function () {
+        console.log('点击一次');
+        alert('STOP');
+      }; //被覆盖
+
+      btn.onclick = function () {
+        console.log('又点击一次');
+        alert('STOP!');
+      }; //运行时只会把该事件作为 Button 的响应
+    </script>
+  </body>
+</html>
