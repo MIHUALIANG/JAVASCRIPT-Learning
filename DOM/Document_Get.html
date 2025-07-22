@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>hello</div>
+    <div>hello</div>
+
+    <p class="test">hello class</p>
+    <form name="login"></form>
+
+    <div id="ida">hello id</div>
+    <div class="nav">nav1</div>
+    <div class="nav">nav2</div>
+
+    <script>
+      var divre = document.getElementsByTagName('div')[0]; //默认以数组形式获取多个目标
+      console.log(divre);
+      divre.innerHTML = 'Hello world'; //通过JS中内容改变了html
+
+      var pre = document.getElementsByClassName('test')[0];
+      console.log(pre);
+      pre.innerHTML = 'hello class !';
+
+      //使用率极低
+      var name = document.getElementsByName('login');
+      console.log(name);
+
+      var idre = document.getElementById('ida'); //由于id只可以有一个 因此只会返回一个值 无需像上述一样选择一个数组元素输出
+      console.log(idre);
+      idre.innerHTML = 'hello id !';
+
+      var navs = document.querySelector('.nav'); //只能获取一个 默认为第一个
+      console.log(navs);
+
+      var navs = document.querySelectorAll('.nav')[1]; //允许获取多个 需要选择一个数组元素输出
+      console.log(navs);
+    </script>
+  </body>
+</html>

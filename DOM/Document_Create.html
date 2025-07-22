@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav">导航</div>
+    <div id="container"></div>
+    <script>
+      var text = document.createElement('p');
+      var content = document.createTextNode('我是文本');
+      var id = document.createAttribute('id'); //添加属性 以 id 为例
+      id.value = 'root';
+      //appendChild:将内容或者子元素（除了属性）放到容器中
+      text.appendChild(content); //此时把 content 塞入到 p 中
+      text.setAttributeNode(id); //把 id 属性塞到 p 中
+      console.log(text); //但此时并没有显示在页面中
+
+      var container = document.getElementById('container');
+      container.appendChild(text); //把 p 标签塞到 div 中
+    </script>
+  </body>
+</html>

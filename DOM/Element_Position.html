@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+      /* 浏览器设置是默认存在8px的左边界可以通过上述方法消除 */
+      .box {
+        width: 200px;
+        height: 20px;
+        background-color: aquamarine;
+        padding: 10px;
+        margin: 20px;
+        border: 5px solid blueviolet;
+      }
+      div {
+        width: 200px;
+        height: 500px;
+      }
+      .root {
+        width: 400px;
+        height: 500px;
+        background-color: beige;
+        margin: 0 auto;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+
+    <div class="root">
+      <div class="box" id="boo"></div>
+    </div>
+
+    <div></div>
+
+    <script>
+      var box = document.getElementById('box');
+      console.log(box.clientWidth); //在计算时会包含内边距padding 不包含border margin
+      console.log(box.clientHeight); //在计算时会包含内边距padding
+
+      //还有scrollHeight scrollWidth 计算时包含padding 以及溢出不可见部分 不包含border margin
+      //还有offsetHeight offsetEidth 计算时包含oadding border margin 甚至滚动条
+
+      console.log(box.offsetLeft); //计算到定位父级左边界的间距 该例子中只算了margin
+      console.log(box.offsetTop); //计算到父级上边界的间距
+
+      var boo = document.getElementById('boo');
+      console.log(boo.offsetLeft); //计算到定位父级左边界的间距
+      console.log(boo.offsetTop); //计算到父级上边界的间距 关键在于定位 如果没有定位父级那么还是基于文档
+
+      console.log(document.documentElement.clientWidth);
+      console.log(document.documentElement.clientHeight); //获取视口大小 屏幕大小
+      console.log(document.body.clientWidth);
+      console.log(document.body.clientHeight); //获取页面高度 页面不一定能占据整个屏幕
+
+      //获取滚动高度 一般为上下滚动
+      console.log(document.documentElement.scrollTop);
+    </script>
+  </body>
+</html>

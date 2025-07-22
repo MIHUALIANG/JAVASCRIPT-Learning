@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box" id="root">Hello</div>
+    <a href="https://www.itbaizhan.com/" id="lian">百战</a>
+
+    <script>
+      var idre = document.getElementById('root'); //获取该 id 的语句
+      console.log(idre.id);
+      idre.id = 'mostroot'; //修改 id
+      console.log(idre.className);
+      idre.className = 'bigbox smallbox'; //修改 class为一个新的 class 而且可以添加多个
+
+      idre.classList.add('boxking'); //仅做添加 不改变原来 class
+      idre.classList.remove('smallbox');
+      idre.classList.toggle('smallbox'); //不存在就加入 存在就移除
+      idre.classList.contains('boxking'); //返回 true 或者 false
+      console.log(idre.classList.contains('boxking'));
+
+      console.log(idre.innerHTML); //读取容器中的内容
+      idre.innerHTML = 'HELLO WORLD'; //修改容器中的内容
+
+      console.log(idre.innerText); //读取容器中的内容
+      idre.innerText = 'HELLO WORLD!'; //修改容器中的内容
+
+      //   innerHTML与innerText区别 前者可以识别标签 后者会把标签识别为字符串
+
+      //   var str = document.getElementById('lian'); 这样是错误的 得到的是一个dom元素 而不是一个字符串 如果把dom元素给innerHTML 那么也只会被看作为字符串 而不会识别标签
+      var str = '<a href="https://www.itbaizhan.com/">百战</a>';
+      idre.innerHTML = str;
+      //   idre.innerText = str;
+    </script>
+  </body>
+</html>

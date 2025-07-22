@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //以格林威治时间1970年1月1日 00:00作为时间零点 单位为毫秒 为北京时间1970.1.1 8:00
+      console.log(Date.now());
+      console.log(new Date()); //当前时间
+      console.log(new Date().getTime()); //当前时间的毫秒数
+
+      console.log(new Date().getFullYear()); //获取当前年份
+      console.log(new Date().getMonth() + 1); //获取当前月份 注意月份从0开始
+      console.log(new Date().getDate()); //获取当前日期
+
+      console.log(new Date().getHours()); //获取当前小时
+      console.log(new Date().getMinutes()); //获取当前分钟
+      console.log(new Date().getSeconds()); //获取当前秒数
+      console.log(new Date().getMilliseconds()); //获取当前毫秒数
+      console.log(new Date().getDay()); //获取当前星期 0-6 分别代表星期日-星期六
+
+      var year = new Date().getFullYear();
+      var month = new Date().getMonth() + 1;
+      var date = new Date().getDate();
+      alert(year + '-' + month + '-' + date);
+      document.write(year + '&nbsp;-&nbsp;' + month + '&nbsp;-&nbsp;' + date);
+
+      function leftdat() {
+        var today = new Date();
+        var endday = new Date(today.getFullYear(), 11, 31, 23, 59, 59, 999);
+        var perday = 24 * 60 * 60 * 1000;
+        var result = (endday.getTime() - today.getTime()) / perday;
+        console.log(Math.floor(result));
+        alert('今年还剩' + result + '天');
+      }
+
+      leftdat();
+    </script>
+  </body>
+</html>
