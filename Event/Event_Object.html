@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .root {
+        width: 400px;
+        height: 400px;
+        background-color: aquamarine;
+      }
+      .box {
+        width: 300px;
+        height: 200px;
+        background-color: rgb(232, 227, 59);
+        margin: 0px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">Button</button>
+    <a href="https://itbaizhan.com" id="it">IT</a>
+    <div class="root" id="root">
+      <div class="box" id="box"></div>
+    </div>
+
+    <script>
+      var btn = document.getElementById('btn');
+      btn.onclick = function (evevt) {
+        console.log(event.target); //获取当前所在节点
+        event.target.innerHTML = '点击之后';
+        console.log(event.type); //返回当前事件
+      };
+
+      var it = document.getElementById('it');
+      it.onclick = function (event) {
+        console.log('点击了链接');
+        event.preventDefault(); //阻止默认事件 例如点击链接会跳转 使用该方法后 点击链接不再跳转
+      };
+
+      var root = document.getElementById('root');
+      var box = document.getElementById('box');
+
+      root.onclick = function () {
+        console.log('root');
+      };
+      // box.onclick = function () {
+      //   console.log('box');
+      // };
+      //在默认情况下 点击子节点的同时也是点击了父节点 那么就会触发两个事件
+      //使用下列方法可以阻止该类型的事件冒泡 即触发子节点之后向上传递的行为 那么此时点击子节点不再同时触发点击父节点的事件
+      box.onclick = function (evevt) {
+        evevt.stopPropagation();
+        console.log('box');
+      };
+    </script>
+  </body>
+</html>
