@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 500px;
+        background-color: aquamarine;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      //节流 例如：滚动每隔delay时间最多执行一次
+      function scrollHandle() {
+        console.log('SCROLL');
+        var scrollTop = document.documentElement.scrollTop;
+        console.log(scrollTop);
+      }
+
+      function throttle(fn, delay) {
+        //触发该事件后 首先初始化为true 那么此时会执行function() 即设置valid为 false 在delay事件之后 才会设置为true
+        //设置为false意味着在执行function时会直接返回false 而不会执行输出事件
+        //设置为true意味着可以执行输出事件
+
+        //那么节流原理为:首个滚动事件到达会将valid设为false 自己有一个delay的输出事件等待执行 在delay的时间内 其他滚动事件到达都只会直接返回false 这样就实现了 在delay的时间内 只有一次想要的事件响应
+        //直到delay结束 valid重新被设置为true那么此后到达的滚动事件就会重复上述过程
+        //最终的执行效果为 若用户一直滚动 那么每隔delay的时间都会进行一次输出 若滚动时间不足delay 也只会在delay之后才输出
+        var valid = true;
+        return function () {
+          if (!valid) {
+            return false;
+          }
+          valid = false;
+          setTimeout(function () {
+            fn();
+            valid = true;
+          }, delay);
+        };
+      }
+
+      window.onscroll = throttle(scrollHandle, 1000); //在滚动时会多次触发该事件
+
+      //有如下使用常见场景
+      //1.实时搜索 对于较小的服务器来说 若每次改变搜索框内容都进行搜索 那么服务器要求太高 因此可以每隔一段时间搜索一次
+    </script>
+  </body>
+</html>
