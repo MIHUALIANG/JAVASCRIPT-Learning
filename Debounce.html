@@ -4,6 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 500px;
+        background-color: aquamarine;
+        margin: auto;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      //浏览器滚动事件
+      //   window.onscroll = function () {
+      //     console.log('SCROLL');
+      //   };
+
+      //下面为写法二
+      //   window.onscroll = scrollHandle;
+      function scrollHandle() {
+        console.log('SCROLL');
+        var scrollTop = document.documentElement.scrollTop;
+        console.log(scrollTop);
+      }
+
+      function debounce(fn, delay) {
+        var timer = null; //该语句实际上只创建了一次 timer
+        return function () {
+          //每次返回同一个函数 timer为闭包变量 会被该函数记忆
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(fn, delay);
+          //函数调用之后会先初始化一个timer  那么后一个事件再调用该函数时会发现已经有了一个timer 就会清除掉该timer创建一个新的 timer
+          //若想要执行 那么就必须在某个时刻之后 timer不再被清除 这个时刻即为停止滚动的时刻 此时最后一个timer在经过delay的时间之后会执行
+        };
+      }
+
+      //最后的执行效果就是 在滚动结束delay的时间后 才会执行一次scrollHandel函数
+      // 实现了防抖方法 减小在短时间内多次触发的事件的频率 否则计算机性能会被浪费在这些无意义的事件上
+      window.onscroll = debounce(scrollHandle, 300); //滚动会产生很多次事件 那么就会调用很多次该函数
+    </script>
+  </body>
 </html>
