@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li>列表1</li>
+      <li>列表2</li>
+      <ol>
+        <li>列表3</li>
+      </ol>
+      <p>非LI标签</p>
+    </ul>
+
+    <script>
+      var list = document.getElementById('list');
+      //   list.onclick = function () {
+      //     console.log('点击了'); //监听父元素 点击子元素是可以触发响应事件的
+      //   };
+
+      //事件代理 是为了防止子元素要设置的事件太多而统一在父级中设置的方法
+
+      list.addEventListener('click', function (e) {
+        if (e.target.tagName == 'LI') {
+          //标签名称要大写才能被识别也可以用 toLowerCase() 方法先转为小写再比较 且 tagName 中 N 为大写
+          console.log('点击了li标签');
+          console.log(e.target.innerHTML); //可以得到当前点击节点的信息
+        }
+      });
+    </script>
+  </body>
+</html>

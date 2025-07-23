@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #someDiv {
+        /* id选择器 */
+        width: 400px;
+        height: 400px;
+        margin: 0px auto;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="someDiv"></div>
+    <script>
+      //   var i = 0;
+      //   setInterval(function () {
+      //     i++;
+      //     console.log(i);
+      //     alert(i);
+      //   }, 1000); //每隔一定间隔执行一次
+
+      //使用定时器实现动画
+      var div = document.getElementById('someDiv');
+      //透明度属性 opacity 取值范围 0-1
+      var opacity = 1;
+      var inetrval = -0.05;
+      var fader = setInterval(function () {
+        if (opacity < 0) {
+          opacity = 0;
+          inetrval *= -1;
+        }
+        if (opacity > 1) {
+          opacity = 1;
+          inetrval *= -1;
+        }
+        if (opacity > 0 || opacity == 0) {
+          opacity += inetrval;
+          div.style.opacity = opacity;
+        }
+      }, 100); //实现来回渐变透明度
+    </script>
+  </body>
+</html>

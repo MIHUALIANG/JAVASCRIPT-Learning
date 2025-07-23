@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="username" />
+    <input type="text" id="password" />
+    <form id="form" onsubmit="submitHandle">
+      <!-- 这里的submit响应是使用了HTML事件处理方式 -->
+      <input type="text" name="username" />
+      <button id="reset">RESET</button>
+      <button>SUBMIT</button>
+    </form>
+
+    <script>
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
+      username.oninput = function (e) {
+        console.log(e.target.value); //实时获取输入框信息
+      };
+      username.onselect = function () {
+        //无需全部选中也会触发
+        console.log('选中输入框内容');
+      };
+      password.onchange = function (e) {
+        //在回车或者失去输入焦点的时候触发
+        console.log(e.target.value); //效果与oninput不同 并不会连续触发
+      };
+
+      var reset = document.getElementById('reset');
+      var form = document.getElementById('form');
+
+      reset.onclick = function () {
+        form.reset(); //触发在表单上 清空表单
+      };
+
+      function submitHandle() {}
+    </script>
+  </body>
+</html>

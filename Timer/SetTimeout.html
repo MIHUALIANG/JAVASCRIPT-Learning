@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   setTimeout(function () {
+      //     alert('STOP');
+      //   }, 3000);
+
+      var name = 'it';
+      var user = {
+        name: 'itbaizhan1',
+        getName: function () {
+          var that = this;
+          setTimeout(function () {
+            // console.log(this.name); //设置定时器时 定时器中this的功能会发生变化 此时调用该函数指向的是全部变量
+
+            console.log(that.name); //此时再定时器中不再使用this 而是用与that 指向的是类中name
+          });
+        }
+      };
+      user.getName();
+
+      var timer = setTimeout(function () {
+        alert('STOP');
+      }, 3000);
+      clearTimeout(timer); //用来取消定时器 取消后并不是立即执行 而是永远不再执行
+    </script>
+  </body>
+</html>
