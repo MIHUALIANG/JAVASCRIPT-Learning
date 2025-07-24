@@ -1,83 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var str1 = "it,'is'";
-        var str2 = 'it,"is"';
-        // 可以单引号嵌套双引号或者双引号嵌套单引号 但不可单嵌套单 双嵌套双 若一定要使用 那么需要添加转义反斜杠
-        var str3 = "it,\"is\"";
-        console.log(str1.length)
-        console.log(str1)//print it,'is'
-        console.log(str3)//print it,"is"
+      var str1 = "it,'is'";
+      var str2 = 'it,"is"';
+      // 可以单引号嵌套双引号或者双引号嵌套单引号 但不可单嵌套单 双嵌套双 若一定要使用 那么需要添加转义反斜杠
+      var str3 = 'it,"is"';
+      console.log(str1.length);
+      console.log(str1); //print it,'is'
+      console.log(str3); //print it,"is"
 
-        var str4 = 'abcdefghi';
-        console.log(str4.charAt(0))//print a
-        console.log(str4.charAt(str4.length - 1))//print i  打印最后一个元素
-        //注意 charAt()方法没有搜索负值的使用 输入负值或者越界都是输出""
+      var str4 = 'abcdefghi';
+      console.log(str4.charAt(0)); //print a
+      console.log(str4.charAt(str4.length - 1)); //print i  打印最后一个元素
+      //注意 charAt()方法没有搜索负值的使用 输入负值或者越界都是输出""
 
-        var str5 = "hello";
-        var str6 = " world";
-        var str7 = "!"
-        var num = 100;
-        // var result=str5.concat(str6);
-        // var result=str5.concat(str6,str7);
-        // var result=str5.concat(str6,str7,num);
+      var str5 = 'hello';
+      var str6 = ' world';
+      var str7 = '!';
+      var num = 100;
+      // var result=str5.concat(str6);
+      // var result=str5.concat(str6,str7);
+      // var result=str5.concat(str6,str7,num);
 
-        //concat()方法客返回新字符串不改变原来的字符串 且可以合并多个字符串 若不是字符串 但是使用了该方法 那么先转化为字符串再合并 但是原本的数据类型依旧不会改变
+      //concat()方法客返回新字符串不改变原来的字符串 且可以合并多个字符串 若不是字符串 但是使用了该方法 那么先转化为字符串再合并 但是原本的数据类型依旧不会改变
 
-        // var result=str5+str6+str7+num
-        //此时也可以实现字符串合并 但是若合并的两个元素里有两个数字类型 那么还是会先进行相加
-        var numb = 200;
-        var result = num + numb + str5//此时显示300hello
-        console.log(result)
+      // var result=str5+str6+str7+num
+      //此时也可以实现字符串合并 但是若合并的两个元素里有两个数字类型 那么还是会先进行相加
+      var numb = 200;
+      var result = num + numb + str5; //此时显示300hello
+      console.log(result);
 
-        // var str4='abcdefghi';
-        console.log(str4.substring(0,2));//print ab 依旧不会改变原字符串
-        console.log(str4.substring(2));//print cdefghi 输入一个参数默认该参数为开始位置 一直到结束
-        console.log(str4.substring(2,0));//print ab 若大小相反 则会自动翻转位置 若输入为负数则自动更改为0
+      // var str4='abcdefghi';
+      console.log(str4.substring(0, 2)); //print ab 依旧不会改变原字符串
+      console.log(str4.substring(2)); //print cdefghi 输入一个参数默认该参数为开始位置 一直到结束
+      console.log(str4.substring(2, 0)); //print ab 若大小相反 则会自动翻转位置 若输入为负数则自动更改为0
 
+      console.log(str4.substr(0, 2)); //print ab 此时的第二个参数为要抽取的长度
+      console.log(str4.substr(2)); //print cdefghi 输入一个参数默认该参数为开始位置 一直到结束
+      //若此时输入一个参数 且为负数 那么从后开始截取该长度 输入第二个参数为负数 那么转为0 那么长度为0 没有打印
+      // alert(str4.substr(0,3));
 
-        console.log(str4.substr(0,2));//print ab 此时的第二个参数为要抽取的长度
-        console.log(str4.substr(2));//print cdefghi 输入一个参数默认该参数为开始位置 一直到结束
-        //若此时输入一个参数 且为负数 那么从后开始截取该长度 输入第二个参数为负数 那么转为0 那么长度为0 没有打印
-        // alert(str4.substr(0,3));
+      // var str5 = "hello";
+      var str8 = 'hello world hello javascript';
+      console.log(str8.indexOf('world'));
+      console.log(str8.indexOf(str5));
+      //存在则输出位置 不存在则返回-1
+      console.log(str5.indexOf('e', 1));
+      //第二个参数表示从该位置开始查找,包含该位置 输出的位置是从头开始算的 而非从查找位置开始计数
 
-        // var str5 = "hello";
-        var str8="hello world hello javascript"
-        console.log(str8.indexOf('world'))
-        console.log(str8.indexOf(str5))
-        //存在则输出位置 不存在则返回-1
-        console.log(str5.indexOf('e',1))
-        //第二个参数表示从该位置开始查找,包含该位置 输出的位置是从头开始算的 而非从查找位置开始计数
-        
+      var str9 = ' hello ';
+      console.log(str9.trim());
+      //.trim()方法可以去掉两段的空格以及\r \n \t等
+      console.log(str9.trimStart()); //去除头部
+      console.log(str9.trimEnd()); //去除尾部
 
-        var str9=" hello "
-        console.log(str9.trim())
-        //.trim()方法可以去掉两段的空格以及\r \n \t等
-        console.log(str9.trimStart())//去除头部
-        console.log(str9.trimEnd())//去除尾部
-
-        var str10='a|b|c|d'
-        console.log(str10.split('|'))//返回一个数组
-        var str11='abcd'
-        console.log(str11.split(''))//可以得到字符串的每一个字符
-        console.log(str11.split())//若.split()方法中什么都没有 那么会得到与原字符串一样的结果
-        //同时该方法也有第二个参数 为截取长度
-
-
-
-
-
-
-
+      var str10 = 'a|b|c|d';
+      console.log(str10.split('|')); //返回一个数组
+      var str11 = 'abcd';
+      console.log(str11.split('')); //可以得到字符串的每一个字符
+      console.log(str11.split()); //若.split()方法中什么都没有 那么会得到与原字符串一样的结果
+      //同时该方法也有第二个参数 为截取长度
     </script>
-</body>
-
+  </body>
 </html>
